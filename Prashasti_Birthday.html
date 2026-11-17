@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Prashasti!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #3F6B2A;
+      --sage: #7BAA7C;
+      --mist: #DFF0E1;
+      --cream: #F7F4EA;
+      --charcoal: #3A3B3C;
+      --ink: #344331;
+      --soft-ink: #64715F;
+      --line: rgba(63, 107, 42, .22);
+      --glass: rgba(247, 244, 234, .88);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      padding: 24px;
+      color: var(--charcoal);
+      font-family: 'Nunito', sans-serif;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(123,170,124,.38), transparent 28%),
+        radial-gradient(circle at 88% 82%, rgba(63,107,42,.16), transparent 30%),
+        linear-gradient(135deg, var(--mist), var(--cream) 58%, #e9eee2);
+      display: flex; justify-content: center; align-items: center;
+    }
+    .container { width: 100%; max-width: 760px; }
+    .screen { display: none; text-align: center; animation: arrive .45s ease both; }
+    .screen.active { display: block; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .eyebrow {
+      color: var(--forest); text-transform: uppercase; letter-spacing: 3px;
+      font-size: 11px; font-weight: 800; margin-bottom: 14px;
+    }
+    h1, h2 { font-family: 'Playfair Display', Georgia, serif; }
+    .home-screen h1 {
+      color: var(--forest); font-size: clamp(42px, 8vw, 66px);
+      line-height: 1.12; margin-bottom: 14px;
+    }
+    .subtitle {
+      max-width: 560px; margin: 0 auto 34px; color: var(--soft-ink);
+      font-size: 17px; line-height: 1.8;
+    }
+    .birthday-stamp {
+      display: inline-block; margin: 0 auto 28px; padding: 9px 18px;
+      border: 1px solid var(--line); border-radius: 999px;
+      background: rgba(255,255,255,.48); color: var(--forest);
+      font-size: 13px; font-weight: 800;
+    }
+    .nav-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 auto 22px; }
+    button {
+      font: inherit; cursor: pointer; transition: .22s ease;
+    }
+    .nav-button, .final-button, .nav-bottom button, .back-home {
+      border-radius: 12px; padding: 15px 18px; font-weight: 800;
+    }
+    .nav-button {
+      color: var(--forest); border: 1px solid rgba(63,107,42,.25);
+      background: rgba(255,255,255,.48); min-height: 60px;
+    }
+    .nav-button:hover, .nav-bottom button:hover, .back-home:hover {
+      background: var(--mist); transform: translateY(-2px); border-color: var(--sage);
+    }
+    .final-button {
+      color: var(--cream); background: var(--forest); border: 1px solid var(--forest);
+      padding: 16px 28px; box-shadow: 0 8px 22px rgba(63,107,42,.16);
+    }
+    .final-button:hover { background: #31551f; transform: translateY(-2px); }
+    .content-card, .letter-box {
+      background: var(--glass); border: 1px solid rgba(63,107,42,.18);
+      border-radius: 22px; padding: clamp(26px, 6vw, 48px);
+      box-shadow: 0 18px 50px rgba(58,59,60,.08);
+      backdrop-filter: blur(8px);
+    }
+    .page-title { color: var(--forest); font-size: clamp(30px, 6vw, 43px); margin-bottom: 12px; }
+    .page-subtitle { color: var(--soft-ink); line-height: 1.7; margin-bottom: 28px; }
+    .feature {
+      min-height: 190px; display: flex; align-items: center; justify-content: center;
+      padding: 26px; border-radius: 17px; background: var(--mist);
+      border: 1px solid rgba(123,170,124,.55);
+    }
+    .feature-text {
+      color: var(--forest); font: 700 clamp(29px, 6vw, 42px)/1.35 'Caveat', cursive;
+    }
+    .small-note { color: var(--soft-ink); margin-top: 22px; font-size: 14px; line-height: 1.7; }
+    .nav-bottom { display: flex; gap: 12px; justify-content: center; margin-top: 24px; }
+    .nav-bottom button, .back-home {
+      color: var(--forest); background: rgba(255,255,255,.55);
+      border: 1px solid var(--line); padding: 11px 19px;
+    }
+    .letter-screen { text-align: center; }
+    .letter-box { text-align: left; }
+    .letter-box h1 { color: var(--forest); font-size: clamp(30px, 6vw, 40px); text-align: center; margin-bottom: 28px; }
+    .letter-content { color: #465044; font-size: 16px; line-height: 1.95; }
+    .letter-paragraph { margin-bottom: 19px; }
+    .letter-closing { text-align: right; margin-top: 28px; }
+    .closing-text { color: var(--soft-ink); margin-bottom: 4px; }
+    .signature { font: 700 42px 'Caveat', cursive; color: var(--forest); }
+    .back-home { margin-top: 22px; }
+    .tiny-footer { color: var(--soft-ink); font-size: 12px; margin-top: 26px; }
+    @media (max-width: 520px) {
+      body { padding: 16px; align-items: flex-start; }
+      .nav-buttons { grid-template-columns: 1fr; }
+      .nav-bottom { flex-wrap: wrap; }
+      .content-card { padding: 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="screen active home-screen" id="home">
+      <p class="eyebrow">A little birthday corner, made just for you</p>
+      <h1>Happy Birthday,<br>Prashasti! 🌿</h1>
+      <p class="subtitle">Aaj ka din tumhara hai — so no ordinary birthday message. I made you a tiny little corner of the internet, with wishes, smiles and a letter. Bas, take your time and enjoy it.</p>
+      <div class="birthday-stamp">✨ Officially your day. Main character energy only. ✨</div>
+      <div class="nav-buttons">
+        <button class="nav-button" onclick="goToScreen('page1')">🎂 A birthday wish</button>
+        <button class="nav-button" onclick="goToScreen('page2')">🌷 A little appreciation</button>
+        <button class="nav-button" onclick="goToScreen('page3')">👑 A royal birthday decree</button>
+        <button class="nav-button" onclick="goToScreen('page4')">🌙 A Shakespearean wish</button>
+        <button class="nav-button" onclick="goToScreen('page5')">🎁 Your birthday surprise</button>
+      </div>
+      <button class="final-button" onclick="goToScreen('letter')">💌 Open your birthday letter</button>
+      <p class="tiny-footer">Made with care, a little creativity, and lots of green. 💚</p>
+    </section>
+
+    <section class="screen content-screen" id="page1">
+      <div class="content-card">
+        <p class="eyebrow">Chapter I · The wish</p>
+        <h2 class="page-title">Aaj ka din tumhare naam</h2>
+        <p class="page-subtitle">One day, twelve months in the making — and today, the world gets to celebrate you.</p>
+        <div class="feature"><div class="feature-text">May your year be full of happy surprises, genuine smiles, brave dreams and moments you'll want to remember. Happy Birthday! 🎂</div></div>
+        <p class="small-note">And yes, cake calories don't count on birthdays. That's a universal law. Probably. 😌</p>
+      </div>
+      <div class="nav-bottom"><button onclick="goToScreen('home')">← Home</button><button onclick="goToScreen('page2')">Next →</button></div>
+    </section>
+
+    <section class="screen content-screen" id="page2">
+      <div class="content-card">
+        <p class="eyebrow">Chapter II · The appreciation</p>
+        <h2 class="page-title">A few things worth celebrating</h2>
+        <p class="page-subtitle">Birthdays are about the person, not just the candles. So here's a little reminder.</p>
+        <div class="feature"><div class="feature-text">Your presence has its own kind of sunshine. The world feels a little less ordinary when you bring your laughter, your thoughts and your wonderfully-you self into it.</div></div>
+        <p class="small-note">Stay curious, stay kind, and never feel you have to become anyone other than yourself.</p>
+      </div>
+      <div class="nav-bottom"><button onclick="goToScreen('home')">← Home</button><button onclick="goToScreen('page3')">Next →</button></div>
+    </section>
+
+    <section class="screen content-screen" id="page3">
+      <div class="content-card">
+        <p class="eyebrow">Chapter III · A royal decree</p>
+        <h2 class="page-title">Hear ye, hear ye! 👑</h2>
+        <p class="page-subtitle">By the very unofficial authority of this birthday website…</p>
+        <div class="feature"><div class="feature-text">Her Majesty Prashasti is hereby granted: unlimited reasons to smile, permission to chase every big dream, a year of good luck, and first choice of the birthday cake. No appeals shall be entertained.</div></div>
+        <p class="small-note">The crown is imaginary, but the birthday wishes are absolutely real. ✨</p>
+      </div>
+      <div class="nav-bottom"><button onclick="goToScreen('home')">← Home</button><button onclick="goToScreen('page4')">Next →</button></div>
+    </section>
+
+    <section class="screen content-screen" id="page4">
+      <div class="content-card">
+        <p class="eyebrow">Chapter IV · A little Shakespeare</p>
+        <h2 class="page-title">If time would pause…</h2>
+        <p class="page-subtitle">A tiny bit of old-world poetry, just for the occasion.</p>
+        <div class="feature"><div class="feature-text">If every star were a wish, and every dawn a new beginning, may the heavens be generous with both for thee. Forsooth, may joy find thy door — today, tomorrow, and all the days yet to come. 🌙</div></div>
+        <p class="small-note">Translation in simple Hinglish: khush raho, khoob aage badho, aur life tumhe bahut saare beautiful moments de.</p>
+      </div>
+      <div class="nav-bottom"><button onclick="goToScreen('home')">← Home</button><button onclick="goToScreen('page5')">Next →</button></div>
+    </section>
+
+    <section class="screen content-screen" id="page5">
+      <div class="content-card">
+        <p class="eyebrow">Chapter V · The little surprise</p>
+        <h2 class="page-title">Your next trip around the sun ☀️</h2>
+        <p class="page-subtitle">A new age, a fresh chapter, and so many pages still waiting to be written.</p>
+        <div class="feature"><div class="feature-text">May you collect memories, not worries; courage, not doubts; and people who make you feel appreciated. Dream big, laugh loudly, and make this year wonderfully yours!</div></div>
+        <p class="small-note">One last thing: I hope today gives you at least one moment that makes you think, “Yep, this was a really good day.” 💚</p>
+      </div>
+      <div class="nav-bottom"><button onclick="goToScreen('home')">← Home</button><button onclick="goToScreen('letter')">Read your letter →</button></div>
+    </section>
+
+    <section class="screen letter-screen" id="letter">
+      <div class="letter-box">
+        <p class="eyebrow">A note from me to you</p>
+        <h1>Dear Prashasti, 💚</h1>
+        <div class="letter-content">
+          <p class="letter-paragraph">Happy Birthday, Prashasti! I hope your day is going beautifully — full of laughter, your favourite people, good food, and all the little things that make you happy. Aaj ka din genuinely special hai, because it's a celebration of you.</p>
+          <p class="letter-paragraph">I could have sent a simple “HBD, have a great day” message, but that felt far too ordinary. So, here's a small corner of the internet instead. Thoda sa effort, thodi si creativity, and a lot of good wishes — all wrapped up for your birthday.</p>
+          <p class="letter-paragraph">I just want you to know that I appreciate the person you are. Your way of looking at things, your conversations, your laughter, and the little moments we share — they mean more to me than I probably manage to say. You have a way of making an ordinary day feel a little brighter, and that's something I don't take for granted.</p>
+          <p class="letter-paragraph">I won't pretend that every day is a perfect movie scene — real life is much more interesting, and sometimes a little chaotic. But I do hope we keep sharing honest conversations, silly jokes, kind moments, and memories that make us smile later. And whenever I mess up, I hope I keep learning to listen better and show my appreciation through what I do, not just what I say.</p>
+          <p class="letter-paragraph">As Shakespeare might put it, “May the course of your days be fair.” And in my much less poetic Hinglish: may this year bring you confidence, peace, exciting opportunities, unexpected happiness, and the courage to go after everything you dream of. Hamesha apni wali smile ke saath rehna — it suits you.</p>
+          <p class="letter-paragraph">So, here's to you, to a new chapter, and to all the lovely things still waiting ahead. Have the happiest birthday, Prashasti. You deserve a day as lovely as the joy you bring to the people around you.</p>
+          <div class="letter-closing">
+            <p class="closing-text">With lots of affection and the warmest wishes,</p>
+            <div class="signature">Shubhang</div>
+          </div>
+        </div>
+      </div>
+      <button class="back-home" onclick="goToScreen('home')">← Back to the birthday page</button>
+    </section>
+  </main>
+  <script>
+    function goToScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+      const nextScreen = document.getElementById(screenId);
+      if (nextScreen) nextScreen.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
